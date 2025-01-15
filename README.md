@@ -23,3 +23,27 @@
 - Напишите Bash-скрипт, который будет проверять доступность порта данного веб-сервера и существование файла index.html в root-директории данного веб-сервера.
 - Настройте Keepalived так, чтобы он запускал данный скрипт каждые 3 секунды и переносил виртуальный IP на другой сервер, если bash-скрипт завершался с кодом, отличным от нуля (то есть порт веб-сервера был недоступен или отсутствовал index.html). Используйте для этого секцию vrrp_script
 - На проверку отправьте получившейся bash-скрипт и конфигурационный файл keepalived, а также скриншот с демонстрацией переезда плавающего ip на другой сервер в случае недоступности порта или файла index.html
+
+
+<details>
+
+```
+#!/bin/bash
+if [[ $(netstat -tuln | grep LISTEN | grep :80) ]] && [[ -f /var/www/html/index.nginx-debian.html ]]; then
+        exit 0
+else
+        sudo systemctl stop keepalived.service
+fi
+```
+
+</details>
+
+Файл конфига https://github.com/Ivashka80/Disaster-recovery_Keepalived/blob/main/keepalived.conf
+
+![image](https://github.com/user-attachments/assets/c24a9163-8d56-43da-a24f-d2f61f6dd3bf)
+
+![image](https://github.com/user-attachments/assets/ec89ee72-2511-434e-a951-63d97ef9a638)
+
+
+
+
