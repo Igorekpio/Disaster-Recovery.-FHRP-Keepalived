@@ -13,6 +13,7 @@
 ![image](https://github.com/user-attachments/assets/8083988c-cead-4819-a4bf-3b6ce4e182a0)
 ![image](https://github.com/user-attachments/assets/3c45260d-e049-4e23-8438-46cacc6abacc)
 
+файл https://github.com/Igorekpio/Disaster-Recovery.-FHRP-Keepalived/blob/main/hsrp_advanced_SYS-37.pkt
 
 
 
